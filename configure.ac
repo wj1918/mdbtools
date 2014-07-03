@@ -11,7 +11,7 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_PROG_CC(gcc)
 dnl Checks for programs.
 AC_PROG_MAKE_SET
-AM_PROG_AR
+m4_pattern_allow([AM_PROG_AR], [AM_PROG_AR])
 LT_INIT
 AC_PROG_LEX
 AC_PROG_YACC
@@ -196,6 +196,8 @@ if test x$enable_gtk_doc = xauto ; then
 fi
 
 AM_CONDITIONAL(ENABLE_GTK_DOC, test x$enable_gtk_doc = xyes)
+AM_CONDITIONAL(HAVE_GNOME_DOC_UTILS, test x$enable_gtk_doc = xyes)
+AM_CONDITIONAL(ENABLE_SK, test x$enable_scrollkeeper = xyes)
 
 ##################################################
 # Check for txt2man
